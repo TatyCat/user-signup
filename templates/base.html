@@ -5,6 +5,9 @@
         .error {
             color: red;
         }
+        span p{
+            font-size: 12px;
+        }
         
     </style>
     <title>Sign Up</title>
@@ -14,29 +17,57 @@
             <h1>Welcome Wonderful Person!</h1>
             <h1>Please Sign Up:</h1>
         </header>
+        <span>
+            <p>Please make sure your username and password are between 3-20 characters, 
+                your passwords match and your email is valid.</p>
+        </span>
 
         <span>
-            <form action="/welcome" method="get">
-                <div> 
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username">
-                </div>
+            <form action="/2" method="POST">
+                <table align="center"> 
+                <tr> 
+                    <td>
+                        <label for="username">Username:</label>
+                    </td>
+                    <td> 
+                        <input type="text" id="username" name="username">
+                        <br>
+                        <span class="error">{{unerror}}</span>
+                    </td>
+                </tr>
                 
-                <div>
+                <tr>
+                    <td> 
                     <label for="password"> Password: </label>
-                    <input type="text" id=password name="password">
-                </div>
+                    </td>
+                    <td>
+                    <input type="password" id=password name="password">
+                    <br>
+                    <span class="error">{{pwerror}}</span>
+                    </td>
+                </tr>
 
-                <div>
+                <tr>
+                    <td>
                     <label for="pw_confirm"> Verify Password: </label>
-                    <input type="text" id=pw_confirm name="pw_confirm">
-                </div>
+                    </td>
+                    <td>
+                    <input type="password" id=pw_confirm name="pw_confirm">
+                    <br>
+                    <span class="error">{{pw_match}}</span>
+                    </td>
+                </tr>
             
-                <div>
+                <tr>
+                    <td>
                     <label for="email"> Email (optional): </label>
+                    </td>
+                    <td>
                     <input type="text" id=email name="email">
-                </spdivan>
-                <br>
+                    <span class="error">{{email_error}}</span>
+                    </td>
+                </tr>
+            </table>
             <button type="submit">Submit</button>
             </form>
         </span>
